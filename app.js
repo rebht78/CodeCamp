@@ -7,6 +7,11 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
+app.get("/login", function(req, res){
+    res.render("login");
+});
+
+
 app.listen("8080", function() {
     console.log("CodeCamp started successfully!!!");
 });
