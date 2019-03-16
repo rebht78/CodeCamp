@@ -11,6 +11,9 @@ app.get("/login", function(req, res){
     res.render("login");
 });
 
+app.get("/register", function(req, res){
+    res.render("register");
+});
 
 app.listen("8080", function() {
     console.log("CodeCamp started successfully!!!");
