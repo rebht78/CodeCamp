@@ -15,6 +15,9 @@ app.get("/register", function(req, res){
     res.render("register");
 });
 
+app.get("/home", function(req, res){
+    res.render("home/home");
+});
 app.listen("8080", function() {
     console.log("CodeCamp started successfully!!!");
 });
