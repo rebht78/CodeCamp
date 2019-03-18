@@ -1,6 +1,8 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
+app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 
 app.get("/", function(req, res){
@@ -12,7 +14,17 @@ app.get("/login", function(req, res){
 });
 
 app.post("/login", function(req, res) {
-    
+    var username = req.body.txtUsername;
+    var password = req.body.txtPassword;
+
+    if (username === 'user' && password === 'user')
+    {
+        res.redirect("/home");
+    }
+    else
+    {
+        res.redirect("/login");
+    }
 });
 
 app.get("/register", function(req, res){
