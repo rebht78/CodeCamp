@@ -1,4 +1,4 @@
-import express from "express";
+var express = require('express');
 
 var app = express();
 app.set("view engine","ejs");
@@ -9,6 +9,10 @@ app.get("/", function(req, res){
 
 app.get("/login", function(req, res){
     res.render("login");
+});
+
+app.post("/login", function(req, res) {
+    
 });
 
 app.get("/register", function(req, res){
