@@ -3,6 +3,9 @@
     <div class="row">
         <h1 style="text-align:center;">Sign Up Page</h1>
         <div style="width:30%; margin:25px auto;">
+            <div id="errordiv" style="display:none;" class="alert alert-danger">
+                <strong id="message"></strong>
+            </div>
             <form action="#" method="POST">
                 <div class="form-group">
                     <input class="form-control" id="txtUsername" type="text" placeholder="Enter Username">
@@ -14,9 +17,10 @@
                     <input class="form-control" id="txtConfirmPassword" type="password" placeholder="Confirm your Password">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-lg btn-block">Sign Up</button>
+                    <button class="btn btn-primary btn-lg btn-block" onclick="return validate_compare();">Sign Up</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<% include partials/footer %>
