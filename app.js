@@ -1,11 +1,14 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
+var connectionString = "mongodb://rebht78:wn7h4pas95@ds119996.mlab.com:19996/codecamp";
+var mongoose = require('mongoose');
 var app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.set("view engine","ejs");
 
+mongoose.connect(connectionString,{useNewUrlParser:true});
+console.log("Connected to Mongo!");
 app.get("/", function(req, res){
     res.render("landing");
 });
