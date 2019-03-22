@@ -18,6 +18,13 @@ mongoose.connect(connectionString,{useNewUrlParser:true}, function(err,db) {
     }
 });
 
+var UserSchema = new mongoose.Schema({
+    username:String,
+    password:String
+});
+
+var User = mongoose.model("User",UserSchema);
+
 app.get("/", function(req, res){
     res.render("landing");
 });
@@ -44,6 +51,24 @@ app.get("/register", function(req, res){
     res.render("register");
 });
 
+app.post("/register", function(req, res) {
+    var newUser = new User({
+        username:req.body.txtUsername,
+        password:req.body.txtPassword
+    });
+    
+    newUser.save(function(err,user){
+        if (err) {
+            console.log("An error has occured: "+err);
+        }
+        else
+        {
+            console.log("Data inserted : "+user);
+        }
+    });
+
+    res.redirect("/register");
+});
 app.get("/home", function(req, res){
     res.render("home/home");
 });
