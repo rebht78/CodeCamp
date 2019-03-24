@@ -1,8 +1,14 @@
 function LoginLoader()
 {
-    ajaxCall("/login",'','load');
+    HideMainDiv();
+    ajaxCallGet("/login",'load');
 }
 function RegisterLoader()
 {
-    ajaxCall("/register",'','load');
+    HideMainDiv();
+    ajaxCallGet("/register",'load');
+}
+function HideMainDiv()
+{
+    document.getElementById('maindiv').style.display = "none";
 }
