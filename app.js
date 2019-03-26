@@ -3,7 +3,8 @@ var bodyParser = require('body-parser');
 var connectionString = "mongodb://admin:admin123@ds119996.mlab.com:19996/codecamp";
 var mongoose = require('mongoose');
 var app = express();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 app.use(express.static('public'));
 app.set("view engine","ejs");
 
@@ -53,21 +54,20 @@ app.get("/register", function(req, res){
 
 app.post("/register", function(req, res) {
     var newUser = new User({
-        username:req.body.txtUsername,
-        password:req.body.txtPassword
+        username:req.body.Username,
+        password:req.body.Password
     });
     
     newUser.save(function(err,user){
         if (err) {
-            console.log("An error has occured: "+err);
+            res.render("ajax",{process:"checkreg","rownum":0});
         }
         else
         {
-            console.log("Data inserted : "+user);
+            res.render("ajax",{process:"checkreg","rownum":1});
         }
     });
 
-    res.redirect("/register");
 });
 app.get("/home", function(req, res){
     res.render("home/home");
