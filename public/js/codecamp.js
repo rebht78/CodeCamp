@@ -10,14 +10,16 @@ function RegisterLoader()
 }
 function AddUser()
 {
+    
     if (validate_compare())
     {
+       
         var formdata = new FormData();
         formdata.append("Username",document.getElementById('txtUsername').value);
         formdata.append("Password",document.getElementById('txtPassword').value);
         ajaxCallPost("/register",formdata,'load');
         
-        if (document.getElementById('hiddenstatus').value > 1)
+        if (document.getElementById('hiddenstatus').value == 1)
         {
             alert("You have been registered successfully!");
         }
