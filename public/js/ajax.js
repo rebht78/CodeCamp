@@ -1,8 +1,9 @@
 function ajaxCallPost(url, params, destination) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    var destinationObj = document.getElementById(destination);
+   
+    xhr.open("POST", url, false);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var destinationObj = document.getElementById(destination);
 
     xhr.onreadystatechange = function () { 
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
