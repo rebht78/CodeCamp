@@ -1,6 +1,6 @@
 function ajaxCallPost(url, params, destination) {
     var xhr = new XMLHttpRequest();
-   
+    
     xhr.open("POST", url, false);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     var destinationObj = document.getElementById(destination);
