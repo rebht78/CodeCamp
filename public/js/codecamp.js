@@ -10,10 +10,8 @@ function RegisterLoader()
 }
 function AddUser()
 {
-    
     if (validate_compare())
-    {
-       
+    {  
         var formdata = new FormData();
         formdata.append("Username",document.getElementById('txtUsername').value);
         formdata.append("Password",document.getElementById('txtPassword').value);
@@ -32,4 +30,14 @@ function AddUser()
 function HideMainDiv()
 {
     document.getElementById('maindiv').style.display = "none";
+}
+function CheckLoginDetails()
+{
+    if (validate_comp())
+    {
+        var formdata = new FormData();
+        formdata.append("Username",document.getElementById('txtUsername').value);
+        formdata.append("Password",document.getElementById('txtPassword').value);
+        ajaxCallPost("/login",formdata,'load');
+    }
 }
