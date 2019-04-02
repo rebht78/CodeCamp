@@ -12,10 +12,10 @@ function AddUser()
 {
     if (validate_compare())
     {  
-        var formdata = new FormData();
-        formdata.append("Username",document.getElementById('txtUsername').value);
-        formdata.append("Password",document.getElementById('txtPassword').value);
-        ajaxCallPost("/register",formdata,'load');
+        var formdata = {};
+        formdata.Username = document.getElementById('txtUsername').value;
+        formdata.Password = document.getElementById('txtPassword').value;
+        ajaxCallPost("/register",JSON.stringify(formdata),'load');
         
         if (document.getElementById('hiddenstatus').value == 1)
         {
@@ -35,9 +35,9 @@ function CheckLoginDetails()
 {
     if (validate_comp())
     {
-        var formdata = new FormData();
-        formdata.append("Username",document.getElementById('txtUsername').value);
-        formdata.append("Password",document.getElementById('txtPassword').value);
-        ajaxCallPost("/login",formdata,'load');
+        var formdata = {};
+        formdata.Username = document.getElementById('txtUsername').value;
+        formdata.Password = document.getElementById('txtPassword').value;
+        ajaxCallPost("/login",JSON.stringify(formdata),'load');
     }
 }
