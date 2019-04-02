@@ -1,8 +1,7 @@
 function ajaxCallPost(url, params, destination) {
     var xhr = new XMLHttpRequest();
-    
     xhr.open("POST", url, false);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-Type", "application/json");
     var destinationObj = document.getElementById(destination);
 
     xhr.onreadystatechange = function () { 

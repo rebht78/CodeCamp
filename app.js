@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var connectionString = "mongodb://admin:admin123@ds119996.mlab.com:19996/codecamp";
 var mongoose = require('mongoose');
 var app = express();
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.set("view engine","ejs");
@@ -34,11 +35,10 @@ app.get("/login", function(req, res){
 });
 
 app.post("/login", function(req, res) {
-    var username = req.body.Username;
-    var password = req.body.Password;
-    console.log("Username: "+username);
-    
-    if (username === 'user' && password === 'user')
+    let username = req.body.Username;
+    let password = req.body.Password;
+
+    if (username == 'user' && password == 'user')
     {
         res.redirect("/home");
     }
@@ -57,7 +57,7 @@ app.post("/register", function(req, res) {
         username:req.body.Username,
         password:req.body.Password
     });
-    
+    console.log("Username in register: "+req.body.Username);
     newUser.save(function(err,user){
         if (err) {
             res.render("ajax",{process:"checkreg","rownum":0});
