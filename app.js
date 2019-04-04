@@ -44,7 +44,7 @@ app.post("/login", function(req, res) {
     }
     else
     {
-        res.redirect("/login");
+        res.render("ajax",{process:"checklogin","loginstatus":0});
     }
 });
 
