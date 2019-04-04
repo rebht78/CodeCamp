@@ -1,3 +1,7 @@
 <% if (process === 'checkreg' && rownum === 1) { %>
 <input type="hidden" id="hiddenstatus" value="<%=rownum%>" />
 <% } %>
+<% if (process === 'checklogin' && loginstatus === 0) { %>
+    <input type="hidden" id="hiddenstatus" value="<%=loginstatus%>" />
+    <% } %>
+    

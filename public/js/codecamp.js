@@ -39,5 +39,10 @@ function CheckLoginDetails()
         formdata.Username = document.getElementById('txtUsername').value;
         formdata.Password = document.getElementById('txtPassword').value;
         ajaxCallPost("/login",JSON.stringify(formdata),'load');
+
+        if (document.getElementById('hiddenstatus').value == 0)
+        {
+            alert("Invalid Username or Password!");
+        }
     }
 }
