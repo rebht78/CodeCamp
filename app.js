@@ -40,7 +40,7 @@ app.post("/login", function(req, res) {
 
     if (username == 'user' && password == 'user')
     {
-        res.redirect("/home");
+        res.render("ajax",{process:"checklogin","loginstatus":1});
     }
     else
     {

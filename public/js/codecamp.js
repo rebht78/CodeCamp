@@ -44,5 +44,9 @@ function CheckLoginDetails()
         {
             alert("Invalid Username or Password!");
         }
+        else
+        {
+            window.location = "/home";
+        }
     }
 }
